@@ -1,11 +1,11 @@
 'use strict';
 
-import React     from 'React';
-import connect   from 'react-redux';
+import React          from 'React';
+import { connect }    from 'react-redux';
 
 import TabBarIOS      from 'TabBarIOS';
 import TabBarItemIOS  from 'TabBarItemIOS';
-import Navigator      from 'react-native';
+import { Navigator }  from 'react-native';
 
 import FooterIconHome           from './img/home/footer-icon-home.png';
 import FooterIconHomeActive     from './img/home/footer-icon-home-active.png';
@@ -18,7 +18,7 @@ import FooterIconCollectActive  from './img/collect/footer-icon-collect-active.p
 import FooterIconUser           from './img/user/footer-icon-user.png';
 import FooterIconUserActive     from './img/user/footer-icon-user-active.png';
 
-class Footer extends React.Components {
+class Footer extends React.Component {
 	props: {
 		onTabSelect: (tab: Tab) => void;
 		navigator: Navigator;
@@ -32,7 +32,7 @@ class Footer extends React.Components {
 
 	render () {
 		return (
-			<TabBarIOS tintColor={F8Colors.darkText}>
+			<TabBarIOS tintColor={'red'}>
 				<TabBarItemIOS
 					title          =  "首页"
 					selected       =  {this.props.tab === 'home'}
@@ -83,7 +83,7 @@ class Footer extends React.Components {
 
 function select (store) {
 	return {
-		tab: store.navigation.tab
+		tab: 'home'
 	}
 };
 
@@ -93,5 +93,5 @@ function actions (dispatch) {
 	}
 };
 
-module.exports = connect(select, actions)(Footer);
-
+//module.exports = connect(select, actions)(Footer);
+module.exports = Footer;

@@ -20,9 +20,7 @@ function setup () : ReactClass<{}> {
 
 		render () {
 			return (
-			
-					<AceApp></AceApp>
-
+				<AceApp></AceApp>
 			)
 		}
 	}
