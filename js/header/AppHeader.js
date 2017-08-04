@@ -163,7 +163,120 @@ var styles = StyleSheet.create({
 	}
 });
 
-const Header = Platform.OS === 'ios' ? AppHeaderIOS : AppHeaderAndroid
+const Header = Platform.OS === 'ios' ? AppHeaderIOS : AppHeaderAndroid；
+Header.height = HEADER_HEIGHT;
+
+Header.__cards__ = (define) => {
+	const menuItem  = {
+		title   : 'Menu',
+		icon    : require('./img/hamburger.png'),
+		onPress : () => alert('Menu button pressed!')
+	};
+
+	const filterItem = {
+		title   : 'Filter',
+		icon    : require('./img/filter.png'),
+		onPress : () => alert('Filter button pressed!')
+	};
+
+	define('Simple', () => (
+		<Header title      =  "Hello, world!" />
+	));
+
+	define('With items', () => (
+		<Header title      =  "Default"
+				leftItem   =  {menuItem}
+				rightItem  =  {filterItem} 
+		/>
+	));
+
+	define('Forcing icons', () => (
+		<Header title      =  "Forcing icons"
+				leftItem   =  {{...menuItem,   layout: 'icon'}}
+				rightItem  =  {{...filterItem, layout: 'icon'}}
+		/>
+	));
+
+	define('Forcing title', () => (
+		<Header title      =  "Forcing title"
+				leftItem   =  {{...menuItem,   layout: 'title'}}
+				rightItem  =  {{...filterItem, layout: 'title'}}
+		/>
+	));
+
+	define('With content', () => (
+		<Header leftItem   =  {menuItem}>
+			<View style = {{backgroundColor: '#224488'}}>
+				<Text style = {{color: 'yellow'}}>
+					Yellow text as title
+				</Text>
+			</View>
+		</Header>
+	));
+
+	define('With background', () => (
+		<Header title      =   "With background"
+		        leftItem   =   {{...menuItem,   layout: 'title'}}
+		        rightItem  =   {{...filterItem, layout: 'title'}}
+		        style      =   {{backgroundColor:  '#224488'}}
+		</Header>
+	));
+
+	define('With light background', () => (
+		<Header title      =   "With light background"
+		        leftItem   =   {{...menuItem,   layout: 'title'}}
+		        rightItem  =   {{...filterItem, layout: 'title'}}
+		        style      =   {{backgroundColor:  '#white'}}
+		        foreground =   "dark"
+		</Header>
+	));
+};
+
+module.exports = Header;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
